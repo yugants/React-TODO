@@ -1,24 +1,45 @@
-import logo from './logo.svg';
 import './App.css';
+import Header from './MyComponents/header';
+import Todos from './MyComponents/Todos';
+import React, {useState} from 'react'
+import Footer from './MyComponents/footer';
 
 function App() {
+
+  const onDelete = (todo)=>{
+    console.log("I am onDelete todo = ", "hi");
+
+    setTodos(todos.filter((e)=> {
+      return e!==todo;
+  }))
+  }
+
+  // const [todos, setTodos] = usestate([
+    
+  const [todos, setTodos] = useState([
+    {
+      sno : 1,
+      title : 'Visit market',
+      description : 'To buy stuff'
+    },
+    {
+      sno : 2,
+      title : 'Watch Match',
+      description : 'India cricket match'
+    },
+    {
+      sno : 3,
+      title : 'Code',
+      description : 'Learn Reactjs'
+    }
+  ]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+    <Header  title = 'TODO' searchBar = {true}/>
+    <Todos todos = {todos} onDelete = {onDelete}/>
+    <Footer />
+    </>
   );
 }
 
