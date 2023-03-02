@@ -1,8 +1,5 @@
 import React, {useState} from 'react'
 
-
-
-
 const AddTodo = (props) => {
 
     const [title, setTitle] = useState("")
@@ -15,6 +12,8 @@ const AddTodo = (props) => {
         }
 
         props.addTodo(title, desc)
+        setTitle("")
+        setDesc("")
     }
 
     return (
