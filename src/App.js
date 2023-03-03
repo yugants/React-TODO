@@ -80,14 +80,8 @@ function App() {
           <Route exact path = "/" element = {<div><AddTodo addTodo={addTodo} /> <Todos todos={todos} onDelete={onDelete} /> </div>} />
           {/* <Route exact path = "/" element = {<Todos todos={todos} onDelete={onDelete} />}/> */}
 
-          <Route exact path="/about" render={() => {
-            return (
-              <>
-              <About />
-              </>
-            )
-          }} />
-          
+          <Route exact path="/about" element={ <About />} />
+            
         </Routes>
         <Footer />
       </Router>
